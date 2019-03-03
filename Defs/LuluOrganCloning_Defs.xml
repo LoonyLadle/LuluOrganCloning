@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Defs>
+
+  <!--========== HediffDefs ==========-->
+  <!-- This hediff mostly serves as a flag to signal whether it is suitable for harvest. -->
+  <HediffDef>
+    <defName>LuluOrganCloning_ClonedOrgan</defName>
+    <label>cloned organ</label>
+    <labelNoun>a cloned organ</labelNoun>
+    <defaultLabelColor>(0.65, 0.3, 0.9)</defaultLabelColor>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <partEfficiencyOffset>-0.5</partEfficiencyOffset>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!--========== ResearchProjectDefs ==========-->
+  <ResearchProjectDef>
+    <defName>LuluOrganCloning_Research</defName>
+    <label>organ cloning</label>
+    <description>Grow ethical, natural human organs using pigs. Human tissue cultures are inserted in an early- or middle-stage pregnancy. The resulting children are born with cloned organs which can then be harvested when the host animal matures.</description>
+    <baseCost>1000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>MicroelectronicsBasics</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <researchViewX>11</researchViewX>
+    <researchViewY>2.3</researchViewY>
+  </ResearchProjectDef>
+
+  <!--========== RecipeDefs ==========-->
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>LuluOrganCloning_PrepareOrgan</defName>
+    <label>prepare cloned organ</label>
+    <description>Inject a culture of human cells into a developing embryo, so that the resulting child will be born with cloned human organs. Once the child reaches adulthood, these organs can then be harvested for later transplant.</description>
+    <jobString>Preparing cloned organ.</jobString>
+    <workAmount>2000</workAmount>
+    <isViolation>true</isViolation>
+    <workerClass>LoonyLadle.OrganCloning.Recipe_PrepareClonedOrgan</workerClass>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <researchPrerequisite>LuluOrganCloning_Research</researchPrerequisite>
+    <recipeUsers>
+      <li>Pig</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <disallowedThingDefs>
+        <li>MedicineHerbal</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>LuluOrganCloning_HarvestOrgan</defName>
+    <label>harvest organ</label>
+    <description>Harvest a cloned organ.</description>
+    <workerClass>LoonyLadle.OrganCloning.Recipe_HarvestClonedOrgan</workerClass>
+    <jobString>Harvesting organ.</jobString>
+    <workAmount>2000</workAmount>
+    <isViolation>true</isViolation>
+    <surgerySuccessChanceFactor>1.2</surgerySuccessChanceFactor>
+    <recipeUsers>
+      <li>Pig</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+</Defs>
