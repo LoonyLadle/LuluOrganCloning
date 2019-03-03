@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ModMetaData>
+  <name>Lulu's Organ Cloning</name>
+  <author>LoonyLadle</author>
+  <url>https://github.com/LoonyLadle/LuluOrganCloning</url>
+  <supportedVersions>
+    <li>1.0</li>
+  </supportedVersions>
+  <description>Grow and harvest cloned human organs in pigs.</description>
+</ModMetaData>
