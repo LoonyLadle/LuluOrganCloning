@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <Defs>
 
   <!--========== HediffDefs ==========-->
@@ -11,12 +11,11 @@
     <isBad>false</isBad>
     <stages>
       <li>
-				<partEfficiencyOffset>-0.5</partEfficiencyOffset>
+        <partEfficiencyOffset>-0.5</partEfficiencyOffset>
       </li>
     </stages>
   </HediffDef>
-  
-  
+
   <!--========== ResearchProjectDefs ==========-->
   <ResearchProjectDef>
     <defName>LuluOrganCloning_Research</defName>
@@ -45,9 +44,9 @@
       <Medicine>5</Medicine>
     </skillRequirements>
     <researchPrerequisite>LuluOrganCloning_Research</researchPrerequisite>
-		<recipeUsers>
-			<li>Pig</li>
-		</recipeUsers>
+    <recipeUsers>
+      <li>Pig</li>
+    </recipeUsers>
     <ingredients>
       <li>
         <filter>
@@ -67,19 +66,19 @@
       </disallowedThingDefs>
     </fixedIngredientFilter>
   </RecipeDef>
-  
+
   <RecipeDef ParentName="SurgeryFlesh">
     <defName>LuluOrganCloning_HarvestOrgan</defName>
-    <label>harvest cloned organ</label>
+    <label>harvest organ</label>
     <description>Harvest a cloned organ.</description>
     <workerClass>LoonyLadle.OrganCloning.Recipe_HarvestClonedOrgan</workerClass>
-    <jobString>Harvesting cloned organ.</jobString>
+    <jobString>Harvesting organ.</jobString>
     <workAmount>2000</workAmount>
     <isViolation>true</isViolation>
     <surgerySuccessChanceFactor>1.2</surgerySuccessChanceFactor>
-		<recipeUsers>
-			<li>Pig</li>
-		</recipeUsers>
+    <recipeUsers>
+      <li>Pig</li>
+    </recipeUsers>
     <ingredients>
       <li>
         <filter>
