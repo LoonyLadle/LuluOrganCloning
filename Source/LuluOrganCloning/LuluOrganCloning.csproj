@@ -46,7 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common.cs" />
+    <Compile Include="CloningRecipesUtility.cs" />
+    <Compile Include="CloningRecipesDefOf.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="HediffComp_OrganProps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
