@@ -15,31 +15,34 @@ namespace LoonyLadle.OrganCloning
         {
             HarmonyInstance harmony = HarmonyInstance.Create("rimworld.loonyladle.organcloning");
 
-            MethodInfo method1 = AccessTools.Method(typeof(PawnUtility), "TrySpawnHatchedOrBornPawn");
-            HarmonyMethod patch1 = new HarmonyMethod(typeof(HarmonyPatches), nameof(AddClonedOrgans));
-            harmony.Patch(method1, null, patch1);
+            harmony.PatchAll();
         }
 
-        public static void AddClonedOrgans(Pawn pawn, Thing motherOrEgg)
+        [HarmonyPatch(typeof(PawnUtility), nameof(PawnUtility.TrySpawnHatchedOrBornPawn))]
+        public static void Postfix(Pawn pawn, Thing motherOrEgg, bool __result)
         {
             try
             {
-                if (motherOrEgg is Pawn mother && MyDefOf.LuluOrganCloning_HarvestOrgan.recipeUsers.Contains(mother.def))
+                // Only bother if the pawn wqas spawned, the parent is a pawn, and we can harvest cloned organs from this pawn.
+                if (__result && motherOrEgg is Pawn mother && CloningRecipesDefOf.LuluOrganCloning_HarvestOrgan.recipeUsers.Contains(mother.def))
                 {
-                    HediffComp_OrganProps organProps = mother.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.Pregnant).TryGetComp<HediffComp_OrganProps>();
+                    // Get our pregnancy's organProps.
+                    HediffComp_OrganProps organProps = mother.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.Pregnant)?.TryGetComp<HediffComp_OrganProps>();
 
-                    for (int i = 0; i < organProps.organsToClone.Count; i++)
+                    // This can happen if TrySpawnHatchedOrBornPawn is called from outside the pregnancy hediff, which some mods do.
+                    if (organProps == null) return;
+
+                    // Apply ther cloned organ hediff to every part specified in our organProps.
+                    foreach (BodyPartRecord part in organProps.organsToClone)
                     {
-                        BodyPartRecord part = organProps.organsToClone[i];
-                        Hediff hediff = HediffMaker.MakeHediff(MyDefOf.LuluOrganCloning_ClonedOrgan, pawn, part);
-                        pawn.health.AddHediff(hediff);
+                        pawn.health.AddHediff(HediffMaker.MakeHediff(CloningRecipesDefOf.LuluOrganCloning_ClonedOrgan, pawn, part));
                     }
                 }
             }
             // Attempt to mitigate the damage caused by the "Aerofleet bug" which I don't know how to fix.
             catch (NullReferenceException)
             {
-                Log.Warning("LuluOrganCloning: AddClonedOrgans: caught NullReferenceException (aka the Aerofleet bug). Returning.");
+                //Log.Warning("LuluOrganCloning: AddClonedOrgans: caught NullReferenceException (aka the Aerofleet bug). Returning.");
                 return;
             }
         }

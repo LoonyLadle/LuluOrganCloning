@@ -20,7 +20,7 @@ namespace LoonyLadle.OrganCloning
 
         public override void CompExposeData()
         {
-            Scribe_Collections.Look(ref organsToClone, "organsToClone", LookMode.BodyPart);
+            Scribe_Collections.Look(ref organsToClone, nameof(organsToClone), LookMode.BodyPart);
         }
 
         public override string CompTipStringExtra
@@ -34,9 +34,8 @@ namespace LoonyLadle.OrganCloning
 
                 bool first = true;
 
-                for (int i = 0; i < organsToClone.Count; i++)
+                foreach (BodyPartRecord part in organsToClone)
                 {
-                    BodyPartRecord part = organsToClone[i];
                     if (first)
                     {
                         stringBuilder.Append(part.Label);

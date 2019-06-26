@@ -5,14 +5,6 @@ using Verse;
 
 namespace LoonyLadle.OrganCloning
 {
-    [DefOf]
-    public static class MyDefOf
-    {
-        public static HediffDef LuluOrganCloning_ClonedOrgan;
-        public static RecipeDef LuluOrganCloning_PrepareOrgan;
-        public static RecipeDef LuluOrganCloning_HarvestOrgan;
-    }
-
     public static class CloningRecipesUtility
     {
         public static bool IsCleanAndCloned(Pawn pawn, BodyPartRecord part)
@@ -31,7 +23,7 @@ namespace LoonyLadle.OrganCloning
                 if (hediff.Part == part)
                 {
                     // ... if it is cloned, set our return flag...
-                    if (hediff.def == MyDefOf.LuluOrganCloning_ClonedOrgan)
+                    if (hediff.def == CloningRecipesDefOf.LuluOrganCloning_ClonedOrgan)
                     {
                         isCloned = true;
                     }
