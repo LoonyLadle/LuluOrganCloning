@@ -49,6 +49,7 @@
     <Compile Include="CloningRecipesUtility.cs" />
     <Compile Include="CloningRecipesDefOf.cs" />
     <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="HarmonyPatches\HarmonyPatch_PawnUtility_TrySpawnHatchedOrBornPawn.cs" />
     <Compile Include="HediffComp_OrganProps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipe_PrepareClonedOrgan.cs" />
