@@ -2,6 +2,7 @@
 using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Verse;
 
 #pragma warning disable IDE1006 // Naming Styles
@@ -42,12 +43,11 @@ namespace LoonyLadle.OrganCloning
 					// On surgery fail, 50% chance of miscarriage.
 					if (Rand.Bool)
 					{
-						// This code largely copied from Hediff_Pregnancy, as the Miscarry() method is private.
 						if (pregnancy.Visible && PawnUtility.ShouldSendNotificationAbout(pawn))
 						{
 							Messages.Message("MessageMiscarriedPoorHealth".Translate(pawn).CapitalizeFirst(), pawn, MessageTypeDefOf.NegativeHealthEvent, false);
 						}
-						pawn.health.RemoveHediff(pregnancy);
+						typeof(Hediff_Pregnant).GetMethod("Miscarry", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(pregnancy, null);
 					}
 					return;
 				}
