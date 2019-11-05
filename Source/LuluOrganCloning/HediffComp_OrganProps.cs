@@ -6,14 +6,6 @@ using Verse;
 
 namespace LoonyLadle.OrganCloning
 {
-	public class HediffCompProperties_OrganProps : HediffCompProperties
-	{
-		public HediffCompProperties_OrganProps()
-		{
-			compClass = typeof(HediffComp_OrganProps);
-		}
-	}
-
 	public class HediffComp_OrganProps : HediffComp
 	{
 		public List<BodyPartRecord> organsToClone = new List<BodyPartRecord>();
