@@ -11,7 +11,6 @@ namespace LoonyLadle.OrganCloning
 		static HarmonyPatches()
 		{
 			HarmonyInstance harmony = HarmonyInstance.Create("rimworld.loonyladle.organcloning");
-
 			harmony.PatchAll();
 		}
 	}
