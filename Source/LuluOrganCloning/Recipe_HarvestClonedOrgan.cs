@@ -13,7 +13,7 @@ namespace LoonyLadle.OrganCloning
 		public override IEnumerable<BodyPartRecord> GetPartsToApplyOn(Pawn pawn, RecipeDef recipe)
 		{
 			// Only perform this operation on adults (this is probably not the best way to determine that).
-			if (!pawn.ageTracker.CurLifeStage.defName.ToLower().Contains("adult"))
+			if (!pawn.ageTracker.CurLifeStage.reproductive)
 			{
 				// Return empty result; the things that call this method don't perform null checking.
 				return Enumerable.Empty<BodyPartRecord>();
