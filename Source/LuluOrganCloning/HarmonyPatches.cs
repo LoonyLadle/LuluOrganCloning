@@ -6,9 +6,9 @@ using Verse;
 namespace LoonyLadle.OrganCloning
 {
 	[StaticConstructorOnStartup]
-	static class HarmonyPatches
+	static class MyStaticConstructor
 	{
-		static HarmonyPatches()
+		static MyStaticConstructor()
 		{
 			HarmonyInstance harmony = HarmonyInstance.Create("rimworld.loonyladle.organcloning");
 			harmony.PatchAll();
