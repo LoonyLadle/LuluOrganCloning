@@ -51,12 +51,8 @@ namespace LoonyLadle.OrganCloning
 			// Faction stuff, copied from Recipe_RemoveBodyPart.
 			if (IsViolationOnPawn(pawn, part, Faction.OfPlayer) && pawn.Faction != null && billDoer != null && billDoer.Faction != null)
 			{
-				Faction faction = pawn.Faction;
-				Faction faction2 = billDoer.Faction;
-				int goodwillChange = -15;
 				//string reason = "GoodwillChangedReason_RemovedBodyPart".Translate(part.LabelShort);
-				GlobalTargetInfo? lookTarget = new GlobalTargetInfo?(pawn);
-				faction.TryAffectGoodwillWith(faction2, goodwillChange, true, true, null, lookTarget);
+				pawn.Faction.TryAffectGoodwillWith(billDoer.Faction, -15, true, true, null, new GlobalTargetInfo?(pawn));
 			}
 		}
 	}
