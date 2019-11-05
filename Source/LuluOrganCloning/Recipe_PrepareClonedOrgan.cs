@@ -2,6 +2,7 @@
 using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Verse;
 
 #pragma warning disable IDE1006 // Naming Styles
@@ -42,12 +43,11 @@ namespace LoonyLadle.OrganCloning
 					// On surgery fail, 50% chance of miscarriage.
 					if (Rand.Bool)
 					{
-						// This code largely copied from Hediff_Pregnancy, as the Miscarry() method is private.
 						if (pregnancy.Visible && PawnUtility.ShouldSendNotificationAbout(pawn))
 						{
 							Messages.Message("MessageMiscarriedPoorHealth".Translate(pawn).CapitalizeFirst(), pawn, MessageTypeDefOf.NegativeHealthEvent, false);
 						}
-						pawn.health.RemoveHediff(pregnancy);
+						typeof(Hediff_Pregnant).GetMethod("Miscarry", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(pregnancy, null);
 					}
 					return;
 				}
@@ -64,12 +64,8 @@ namespace LoonyLadle.OrganCloning
 			// Faction stuff, copied from Recipe_RemoveBodyPart.
 			if (IsViolationOnPawn(pawn, part, Faction.OfPlayer) && pawn.Faction != null && billDoer != null && billDoer.Faction != null)
 			{
-				Faction faction = pawn.Faction;
-				Faction faction2 = billDoer.Faction;
-				int goodwillChange = -15;
 				//string reason = "GoodwillChangedReason_RemovedBodyPart".Translate(part.LabelShort);
-				GlobalTargetInfo? lookTarget = new GlobalTargetInfo?(pawn);
-				faction.TryAffectGoodwillWith(faction2, goodwillChange, true, true, null, lookTarget);
+				pawn.Faction.TryAffectGoodwillWith(billDoer.Faction, -15, true, true, null, new GlobalTargetInfo?(pawn));
 			}
 		}
 	}
