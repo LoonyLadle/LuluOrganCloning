@@ -4,7 +4,7 @@
     <xpath>Defs/HediffDef[defName="Pregnant"]/comps</xpath>
     <value>
       <li>
-        <compClass>HediffComp_OrganProps</compClass>
+        <compClass>LoonyLadle.OrganCloning.HediffComp_OrganProps</compClass>
       </li>
     </value>
   </Operation>
