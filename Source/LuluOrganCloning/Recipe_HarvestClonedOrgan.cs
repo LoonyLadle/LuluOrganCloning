@@ -54,9 +54,9 @@ namespace LoonyLadle.OrganCloning
 				Faction faction = pawn.Faction;
 				Faction faction2 = billDoer.Faction;
 				int goodwillChange = -15;
-				//string reason = "GoodwillChangedReason_RemovedBodyPart".Translate(part.LabelShort);
+				string reason = "GoodwillChangedReason_RemovedBodyPart".Translate(part.LabelShort);
 				GlobalTargetInfo? lookTarget = new GlobalTargetInfo?(pawn);
-				faction.TryAffectGoodwillWith(faction2, goodwillChange, true, true, null, lookTarget);
+				faction.TryAffectGoodwillWith(faction2, goodwillChange, true, true, reason, lookTarget);
 			}
 		}
 	}
