@@ -32,10 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\..\..\..\..\Users\Sky\Documents\_My Actual Documents\RimWorld Modding\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\_My Actual Documents\RimWorld Modding\Libraries\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\_Games\RimWorld1-0-2282Win64\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -47,8 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CloningRecipesUtility.cs" />
-    <Compile Include="CloningRecipesDefOf.cs" />
-    <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="MyDefOf.cs" />
+    <Compile Include="MyStaticConstructor.cs" />
+    <Compile Include="HarmonyPatches\HarmonyPatch_PawnUtility_TrySpawnHatchedOrBornPawn.cs" />
     <Compile Include="HediffComp_OrganProps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipe_PrepareClonedOrgan.cs" />
