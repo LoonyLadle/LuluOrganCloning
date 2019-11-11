@@ -1,5 +1,4 @@
-﻿using RimWorld;
-using Verse;
+﻿using Verse;
 
 #pragma warning disable IDE1006 // Naming Styles
 
@@ -23,7 +22,7 @@ namespace LoonyLadle.OrganCloning
 				if (hediff.Part == part)
 				{
 					// ... if it is cloned, set our return flag...
-					if (hediff.def == CloningRecipesDefOf.LuluOrganCloning_ClonedOrgan)
+					if (hediff.def == MyDefOf.LuluOrganCloning_ClonedOrgan)
 					{
 						isCloned = true;
 					}
