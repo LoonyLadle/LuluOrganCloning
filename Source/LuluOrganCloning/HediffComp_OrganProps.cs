@@ -21,8 +21,7 @@ namespace LoonyLadle.OrganCloning
 			{
 				if (organsToClone.NullOrEmpty()) return null;
 
-				StringBuilder stringBuilder = new StringBuilder();
-				stringBuilder.Append("Child will be born with " + organsToClone.Count + " cloned human organs: ");
+				StringBuilder stringBuilder = new StringBuilder("Child will be born with " + organsToClone.Count + " cloned human organs: ");
 
 				bool first = true;
 
