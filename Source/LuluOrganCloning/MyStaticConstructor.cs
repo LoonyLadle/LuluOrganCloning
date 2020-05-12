@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using Verse;
 
 #pragma warning disable IDE1006 // Naming Styles
@@ -10,7 +10,7 @@ namespace LoonyLadle.OrganCloning
 	{
 		static MyStaticConstructor()
 		{
-			HarmonyInstance harmony = HarmonyInstance.Create("rimworld.loonyladle.organcloning");
+			Harmony harmony = new Harmony("rimworld.loonyladle.organcloning");
 			harmony.PatchAll();
 		}
 	}
