@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <ModSyncNinjaData>
-  <ID>05495395-9176-4ea0-a906-edd9caa3c29d</ID>
-  <ModName>Lulu's Organ Cloning</ModName>
-  <Version>1.2.2</Version>
-  <SaveBreaking>False</SaveBreaking>
-  <Host name="Github">
-    <Owner>LoonyLadle</Owner>
-    <Project>LuluOrganCloning</Project>
-    <AboutDir>About</AboutDir>
-    <DownloadFrom>ModSyncReleases</DownloadFrom>
-    <Branch>master</Branch>
-  </Host>
+	<ID>05495395-9176-4ea0-a906-edd9caa3c29d</ID>
+	<ModName>Lulu's Organ Cloning</ModName>
+	<Version>1.3.0</Version>
+	<SaveBreaking>False</SaveBreaking>
+	<Host name="Github">
+		<Owner>LoonyLadle</Owner>
+		<Project>LuluOrganCloning</Project>
+		<AboutDir>About</AboutDir>
+		<DownloadFrom>ModSyncReleases</DownloadFrom>
+		<Branch>master</Branch>
+	</Host>
 </ModSyncNinjaData>

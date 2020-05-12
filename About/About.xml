@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <ModMetaData>
-  <name>Lulu's Organ Cloning</name>
-  <author>LoonyLadle</author>
-  <supportedVersions>
-    <li>1.0</li>
-  </supportedVersions>
-  <url>https://ludeon.com/forums/index.php?topic=49129</url>
-  <description>Grow and harvest cloned human organs in pigs.</description>
+	<name>Lulu's Organ Cloning</name>
+	<author>LoonyLadle</author>
+	<packageId>LoonyLadle.RimWorld.OrganCloning</packageId>
+	<description>Grow and harvest cloned human organs in pigs.</description>
+	<url>https://ludeon.com/forums/index.php?topic=49129</url>
+	<supportedVersions>
+		<li>1.1</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+		</li>
+	</modDependencies>
+	<loadBefore />
+	<loadAfter>
+		<li>brrainz.harmony</li>
+	</loadAfter>
+	<incompatibleWith />
 </ModMetaData>
