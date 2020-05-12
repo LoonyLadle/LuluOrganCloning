@@ -5,6 +5,7 @@
 	<!-- This hediff mostly serves as a flag to signal whether it is suitable for harvest. -->
 	<HediffDef>
 		<defName>LuluOrganCloning_ClonedOrgan</defName>
+		<description>A cloned human organs. Once the child reaches adulthood, these organs can then be harvested for later transplant.</description>
 		<label>cloned organ</label>
 		<labelNoun>a cloned organ</labelNoun>
 		<defaultLabelColor>(0.65, 0.3, 0.9)</defaultLabelColor>
