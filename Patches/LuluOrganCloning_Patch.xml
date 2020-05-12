@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <Patch>
-  <Operation Class="PatchOperationAdd">
-    <xpath>Defs/HediffDef[defName="Pregnant"]/comps</xpath>
-    <value>
-      <li>
-        <compClass>LoonyLadle.OrganCloning.HediffComp_OrganProps</compClass>
-      </li>
-    </value>
-  </Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/HediffDef[defName="Pregnant"]/comps</xpath>
+		<value>
+			<li>
+				<compClass>LoonyLadle.OrganCloning.HediffComp_OrganProps</compClass>
+			</li>
+		</value>
+	</Operation>
 </Patch>
